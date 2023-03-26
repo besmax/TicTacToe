@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import bes.max.tictactoe.R
 import bes.max.tictactoe.databinding.FragmentGameBinding
 import bes.max.tictactoe.model.GameViewModel
@@ -51,9 +52,14 @@ class GameFragment : Fragment() {
     fun checkUserMove(cellNumber: Int) {
         if (gameViewModel.makeUserMove(cellNumber)) {
             Toast.makeText(activity, getString(R.string.move_ok), Toast.LENGTH_SHORT).show()
+            if (gameViewModel.checkForGameToContinue()) goToGameOverScreen()
         } else {
             Toast.makeText(activity, getString(R.string.move_nok), Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun goToGameOverScreen() {
+        findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
     }
 
     override fun onDestroyView() {

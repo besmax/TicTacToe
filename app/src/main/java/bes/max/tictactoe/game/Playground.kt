@@ -3,9 +3,9 @@ package bes.max.tictactoe.game
 class Playground {
 
     private var size = 3
-    private var winnerOfTheGame: String? = null
-    private var userSymbol = '#'
-    private var computerSymbol = '#'
+    var winnerOfTheGame: String = ""
+    var userSymbol = '#'
+    var computerSymbol = '#'
     val field = mutableMapOf<Int, Char>()
 
     fun prepareFieldForGame() {
@@ -41,9 +41,7 @@ class Playground {
         return if (field[positionNumber] == 'A') {
             field[positionNumber] = userOrNot
             true
-        } else {
-            false
-        }
+        } else false
     }
 
     fun checkTheRowsForWinner(winnerSymbol: Char): Boolean {
@@ -57,8 +55,8 @@ class Playground {
             }
             if (uniqueSymbolsInRow.size == 1 && !uniqueSymbolsInRow.contains('A')) {
                 result = true
-                if (uniqueSymbolsInRow.contains(computerSymbol)) winnerOfTheGame = "computer (row)"
-                if (uniqueSymbolsInRow.contains(userSymbol)) winnerOfTheGame = "player (row)"
+                if (uniqueSymbolsInRow.contains(computerSymbol)) winnerOfTheGame = computerSymbol.toString()
+                if (uniqueSymbolsInRow.contains(userSymbol)) winnerOfTheGame = userSymbol.toString()
             }
         }
         return result
@@ -76,8 +74,8 @@ class Playground {
             if (uniqueSymbolsInColumn.size == 1 && !uniqueSymbolsInColumn.contains('A')) {
                 result = true
                 if (uniqueSymbolsInColumn.contains(computerSymbol)) winnerOfTheGame =
-                    "computer (column)"
-                if (uniqueSymbolsInColumn.contains(userSymbol)) winnerOfTheGame = "player (column)"
+                    computerSymbol.toString()
+                if (uniqueSymbolsInColumn.contains(userSymbol)) winnerOfTheGame = userSymbol.toString()
             }
         }
         return result
@@ -96,8 +94,8 @@ class Playground {
         if (uniqueSymbolsInDiagonal.size == 1 && !uniqueSymbolsInDiagonal.contains('A')) {
             result = true
             if (uniqueSymbolsInDiagonal.contains(computerSymbol)) winnerOfTheGame =
-                "computer (diagonal)"
-            if (uniqueSymbolsInDiagonal.contains(userSymbol)) winnerOfTheGame = "player (diagonal)"
+                computerSymbol.toString()
+            if (uniqueSymbolsInDiagonal.contains(userSymbol)) winnerOfTheGame = userSymbol.toString()
         }
         uniqueSymbolsInDiagonal.clear()
         var i = size
@@ -108,8 +106,8 @@ class Playground {
         if (uniqueSymbolsInDiagonal.size == 1 && !uniqueSymbolsInDiagonal.contains('A')) {
             result = true
             if (uniqueSymbolsInDiagonal.contains(computerSymbol)) winnerOfTheGame =
-                "computer (diagonal)"
-            if (uniqueSymbolsInDiagonal.contains(userSymbol)) winnerOfTheGame = "player (diagonal)"
+                computerSymbol.toString()
+            if (uniqueSymbolsInDiagonal.contains(userSymbol)) winnerOfTheGame = userSymbol.toString()
         }
         return result
     }

@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">TicTacToe</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="move_ok">Your move accepted</string>
     <string name="move_nok">Your move is not accepted, try again</string>
+    <string name="play_again">Play again</string>
+    <string name="gameover_win">You win!</string>
+    <string name="gameover_lost">You lost!</string>
+    <string name="gameover_draw">It is a draw!</string>
 </resources>

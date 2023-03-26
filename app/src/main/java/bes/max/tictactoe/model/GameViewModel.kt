@@ -1,8 +1,10 @@
 package bes.max.tictactoe.model
 
+import android.provider.Settings.Global.getString
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import bes.max.tictactoe.R
 import bes.max.tictactoe.game.Playground
 import bes.max.tictactoe.game.player.Computer
 import bes.max.tictactoe.game.player.Human
@@ -17,20 +19,26 @@ class GameViewModel: ViewModel() {
     private val _gameField = MutableLiveData<MutableMap<Int, Char>>()
     val gameField: LiveData<MutableMap<Int, Char>> = _gameField
 
+    private val _winner = MutableLiveData<String>()
+    val winner: LiveData<String> = _winner
+
+
 
 
     init {
-        computer = Computer('0', playground)
-        human = Human('X', playground)
+        computer = Computer(' ', playground)
+        human = Human(' ', playground)
         playground.prepareFieldForGame()
         _gameField.value = playground.field
     }
 
     fun setSymbol(symbol: Char) {
         human.symbol = symbol
-        when (symbol) {
+        playground.userSymbol = human.symbol
+            when (symbol) {
             '0' -> {
                 computer.symbol = 'X'
+                playground.computerSymbol = computer.symbol
                 computer.makeMove()
                 _gameField.value = playground.field
             }
@@ -40,13 +48,22 @@ class GameViewModel: ViewModel() {
 
     fun makeUserMove(cellNumber: Int): Boolean {
         return if (human.makeMove(cellNumber)) {
-            val result: Boolean
-            result = computer.makeMove()
+            val result = computer.makeMove()
             _gameField.value = playground.field
             result
-        } else {
-            false
-        }
+        } else false
     }
+
+    fun checkForGameToContinue(): Boolean {
+        val result = playground.doWeHaveWinner(human.symbol)
+        if (result) {
+            _winner.value = when (playground.winnerOfTheGame) {
+                computer.symbol.toString() -> "computer"
+                else -> {"user"}
+            }
+        }
+        return result
+    }
+
 
 }
