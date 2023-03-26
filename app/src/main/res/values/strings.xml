@@ -2,4 +2,6 @@
     <string name="app_name">TicTacToe</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="move_ok">Your move accepted</string>
+    <string name="move_nok">Your move is not accepted, try again</string>
 </resources>

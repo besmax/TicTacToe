@@ -4,5 +4,7 @@ import bes.max.tictactoe.game.Playground
 
 interface Player {
 
-    abstract fun makeMove(positionNumber: Int): Boolean
+    abstract var symbol: Char
+
+    abstract fun makeMove(positionNumber: Int = -1): Boolean
 }

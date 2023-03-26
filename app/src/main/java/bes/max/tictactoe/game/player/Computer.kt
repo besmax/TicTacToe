@@ -4,7 +4,7 @@ import bes.max.tictactoe.game.Playground
 import java.util.*
 
 class Computer(
-    private val symbol: Char,
+    override var symbol: Char,
     private val playground: Playground
 ) : Player {
 
