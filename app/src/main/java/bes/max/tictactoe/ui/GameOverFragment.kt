@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import bes.max.tictactoe.R
 import bes.max.tictactoe.databinding.FragmentGameOverBinding
 import bes.max.tictactoe.model.GameViewModel
@@ -15,10 +16,6 @@ class GameOverFragment : Fragment() {
     private var _binding: FragmentGameOverBinding? = null
     val binding get() = _binding!!
     private val gameViewModel: GameViewModel by activityViewModels()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +37,11 @@ class GameOverFragment : Fragment() {
             "computer" -> binding.textviewGameover.text = getString(R.string.gameover_lost)
             else -> binding.textviewGameover.text = getString(R.string.gameover_draw)
         }
+    }
+
+    fun restartGame() {
+        gameViewModel.clearField()
+        findNavController().navigate(R.id.action_gameOverFragment_to_menuFragment)
     }
 
     override fun onDestroyView() {

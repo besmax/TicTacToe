@@ -10,7 +10,7 @@ import bes.max.tictactoe.game.player.Computer
 import bes.max.tictactoe.game.player.Human
 import bes.max.tictactoe.game.player.Player
 
-class GameViewModel: ViewModel() {
+class GameViewModel : ViewModel() {
 
     private var computer: Player
     private var human: Player
@@ -23,8 +23,6 @@ class GameViewModel: ViewModel() {
     val winner: LiveData<String> = _winner
 
 
-
-
     init {
         computer = Computer(' ', playground)
         human = Human(' ', playground)
@@ -35,7 +33,7 @@ class GameViewModel: ViewModel() {
     fun setSymbol(symbol: Char) {
         human.symbol = symbol
         playground.userSymbol = human.symbol
-            when (symbol) {
+        when (symbol) {
             '0' -> {
                 computer.symbol = 'X'
                 playground.computerSymbol = computer.symbol
@@ -47,11 +45,15 @@ class GameViewModel: ViewModel() {
     }
 
     fun makeUserMove(cellNumber: Int): Boolean {
-        return if (human.makeMove(cellNumber)) {
-            val result = computer.makeMove()
-            _gameField.value = playground.field
-            result
-        } else false
+        val result = human.makeMove(cellNumber)
+        _gameField.value = playground.field
+        return result
+    }
+
+    fun makeComputerMove(): Boolean {
+        val result = computer.makeMove()
+        _gameField.value = playground.field
+        return result
     }
 
     fun checkForGameToContinue(): Boolean {
@@ -59,10 +61,18 @@ class GameViewModel: ViewModel() {
         if (result) {
             _winner.value = when (playground.winnerOfTheGame) {
                 computer.symbol.toString() -> "computer"
-                else -> {"user"}
+                human.symbol.toString() -> "user"
+                else -> {
+                    "no one"
+                }
             }
         }
         return result
+    }
+
+    fun clearField() {
+        playground.prepareFieldForGame()
+        _gameField.value = playground.field
     }
 
 

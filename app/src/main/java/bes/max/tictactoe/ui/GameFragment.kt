@@ -16,7 +16,7 @@ import bes.max.tictactoe.model.GameViewModel
 class GameFragment : Fragment() {
 
     private var _binding: FragmentGameBinding? = null
-    private val  binding get() = _binding!!
+    private val binding get() = _binding!!
     private val gameViewModel: GameViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -52,14 +52,21 @@ class GameFragment : Fragment() {
     fun checkUserMove(cellNumber: Int) {
         if (gameViewModel.makeUserMove(cellNumber)) {
             Toast.makeText(activity, getString(R.string.move_ok), Toast.LENGTH_SHORT).show()
-            if (gameViewModel.checkForGameToContinue()) goToGameOverScreen()
+            if (!isGameOver()) {
+                gameViewModel.makeComputerMove()
+                isGameOver()
+            }
         } else {
             Toast.makeText(activity, getString(R.string.move_nok), Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun goToGameOverScreen() {
-        findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+    fun isGameOver(): Boolean {
+        val result = gameViewModel.checkForGameToContinue()
+        if (result) {
+            findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)
+        }
+        return result
     }
 
     override fun onDestroyView() {

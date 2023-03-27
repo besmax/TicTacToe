@@ -13,29 +13,6 @@ class Playground {
         for (i in 1..size * size) field[i] = 'A'
     }
 
-//    fun showCurrentPlayground(): String {
-//        val result = StringBuilder("")
-//        var elementNumber = 1
-//        for (i in 1..size) {
-//            for (j in 1..size) {
-//                if (elementNumber < 10) result.append(" ")
-//                if (field[elementNumber] == 'A') result.append(elementNumber)
-//                    .append(" ") else if (field[elementNumber] == '0') {
-//                    if (elementNumber > 9) result.append(" ")
-//                    result.append('0')
-//                        .append(" ")
-//                } else if (field[elementNumber] == 'x' || field[elementNumber] == 'X') {
-//                    if (elementNumber > 9) result.append(" ")
-//                    result.append('X')
-//                        .append(" ")
-//                }
-//                elementNumber++
-//            }
-//            result.append(System.lineSeparator())
-//        }
-//        return result.toString()
-//    }
-
     fun occupyPositionOnTheField(positionNumber: Int, userOrNot: Char): Boolean {
         if (positionNumber == 0) return false
         return if (field[positionNumber] == 'A') {
