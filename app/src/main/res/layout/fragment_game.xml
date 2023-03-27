@@ -36,6 +36,8 @@
                 android:onClick="@{() -> gameFragment.checkUserMove(2)}"
                 android:layout_height="@dimen/cell_height"
                 android:layout_width="@dimen/cell_width"
+                android:layout_marginStart="@dimen/cell_start_end_margin"
+                android:layout_marginEnd="@dimen/cell_start_end_margin"
                 android:text=""/>
             <Button
                 android:id="@+id/third"
@@ -62,6 +64,8 @@
                 android:onClick="@{() -> gameFragment.checkUserMove(5)}"
                 android:layout_height="@dimen/cell_height"
                 android:layout_width="@dimen/cell_width"
+                android:layout_marginStart="@dimen/cell_start_end_margin"
+                android:layout_marginEnd="@dimen/cell_start_end_margin"
                 android:text=""/>
             <Button
                 android:id="@+id/sixth"
@@ -88,6 +92,8 @@
                 android:onClick="@{() -> gameFragment.checkUserMove(8)}"
                 android:layout_height="@dimen/cell_height"
                 android:layout_width="@dimen/cell_width"
+                android:layout_marginStart="@dimen/cell_start_end_margin"
+                android:layout_marginEnd="@dimen/cell_start_end_margin"
                 android:text=""/>
             <Button
                 android:id="@+id/ninth"

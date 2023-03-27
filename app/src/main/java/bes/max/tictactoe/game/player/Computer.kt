@@ -21,7 +21,7 @@ class Computer(
 
     private fun findPositionNumber(positions: List<Int?>): Int {
         var result = 0
-        val availablePositions = playground.findPositionsWithSymbol('A')
+        val availablePositions = playground.findPositionsWithSymbol(' ')
         if (availablePositions!!.contains(5)) result = 5
         if (positions.contains(1) && positions.contains(2) && availablePositions.contains(3) ||
             positions.contains(6) && positions.contains(9) && availablePositions.contains(3) ||
@@ -60,7 +60,7 @@ class Computer(
     }
 
     private fun findRandomPosition(): Int {
-        val availablePositions = playground.findPositionsWithSymbol('A')
+        val availablePositions = playground.findPositionsWithSymbol(' ')
         return availablePositions!![Random().nextInt(availablePositions.size)]
     }
 

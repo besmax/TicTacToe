@@ -10,12 +10,12 @@ class Playground {
 
     fun prepareFieldForGame() {
         winnerOfTheGame = "No one, it's a draw"
-        for (i in 1..size * size) field[i] = 'A'
+        for (i in 1..size * size) field[i] = ' '
     }
 
     fun occupyPositionOnTheField(positionNumber: Int, userOrNot: Char): Boolean {
         if (positionNumber == 0) return false
-        return if (field[positionNumber] == 'A') {
+        return if (field[positionNumber] == ' ') {
             field[positionNumber] = userOrNot
             true
         } else false
@@ -30,7 +30,7 @@ class Playground {
                 uniqueSymbolsInRow.add(field[elementNumber])
                 elementNumber++
             }
-            if (uniqueSymbolsInRow.size == 1 && !uniqueSymbolsInRow.contains('A')) {
+            if (uniqueSymbolsInRow.size == 1 && !uniqueSymbolsInRow.contains(' ')) {
                 result = true
                 if (uniqueSymbolsInRow.contains(computerSymbol)) winnerOfTheGame = computerSymbol.toString()
                 if (uniqueSymbolsInRow.contains(userSymbol)) winnerOfTheGame = userSymbol.toString()
@@ -48,7 +48,7 @@ class Playground {
                 uniqueSymbolsInColumn.add(field[elementNumber])
                 elementNumber += size
             }
-            if (uniqueSymbolsInColumn.size == 1 && !uniqueSymbolsInColumn.contains('A')) {
+            if (uniqueSymbolsInColumn.size == 1 && !uniqueSymbolsInColumn.contains(' ')) {
                 result = true
                 if (uniqueSymbolsInColumn.contains(computerSymbol)) winnerOfTheGame =
                     computerSymbol.toString()
@@ -68,7 +68,7 @@ class Playground {
                 i += size + 1
             }
         }
-        if (uniqueSymbolsInDiagonal.size == 1 && !uniqueSymbolsInDiagonal.contains('A')) {
+        if (uniqueSymbolsInDiagonal.size == 1 && !uniqueSymbolsInDiagonal.contains(' ')) {
             result = true
             if (uniqueSymbolsInDiagonal.contains(computerSymbol)) winnerOfTheGame =
                 computerSymbol.toString()
@@ -80,7 +80,7 @@ class Playground {
             field[i]?.let { uniqueSymbolsInDiagonal.add(it) }
             i = i + size - 1
         }
-        if (uniqueSymbolsInDiagonal.size == 1 && !uniqueSymbolsInDiagonal.contains('A')) {
+        if (uniqueSymbolsInDiagonal.size == 1 && !uniqueSymbolsInDiagonal.contains(' ')) {
             result = true
             if (uniqueSymbolsInDiagonal.contains(computerSymbol)) winnerOfTheGame =
                 computerSymbol.toString()
@@ -94,7 +94,7 @@ class Playground {
             (checkTheRowsForWinner(winnerSymbol)) -> true
             (checkTheColumnsForWinner(winnerSymbol)) -> true
             (checkTheDiagonalsForWinner(winnerSymbol)) -> true
-            (!field.containsValue('A')) -> true
+            (!field.containsValue(' ')) -> true
             else -> false
         }
 

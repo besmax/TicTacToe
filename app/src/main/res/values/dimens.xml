@@ -2,4 +2,5 @@
 <resources>
     <dimen name="cell_width">100dp</dimen>
     <dimen name="cell_height">100dp</dimen>
+    <dimen name="cell_start_end_margin">8dp</dimen>
 </resources>
