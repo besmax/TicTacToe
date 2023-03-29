@@ -1,10 +1,8 @@
 package bes.max.tictactoe.model
 
-import android.provider.Settings.Global.getString
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import bes.max.tictactoe.R
 import bes.max.tictactoe.game.Playground
 import bes.max.tictactoe.game.player.Computer
 import bes.max.tictactoe.game.player.Human

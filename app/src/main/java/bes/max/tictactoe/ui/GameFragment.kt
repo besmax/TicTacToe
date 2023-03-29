@@ -61,7 +61,7 @@ class GameFragment : Fragment() {
         }
     }
 
-    fun isGameOver(): Boolean {
+    private fun isGameOver(): Boolean {
         val result = gameViewModel.checkForGameToContinue()
         if (result) {
             findNavController().navigate(R.id.action_gameFragment_to_gameOverFragment)

@@ -64,13 +64,13 @@ class Computer(
         return availablePositions!![Random().nextInt(availablePositions.size)]
     }
 
-    fun occupyPosition(positionNumber: Int): Boolean {
+    private fun occupyPosition(positionNumber: Int): Boolean {
         var result = false
         if (playground.occupyPositionOnTheField(positionNumber, symbol)) result = true
         return result
     }
 
-    fun defineUserSymbol(): Char {
+    private fun defineUserSymbol(): Char {
         return if (symbol == '0') 'X' else '0'
     }
 }

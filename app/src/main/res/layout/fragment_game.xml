@@ -30,6 +30,7 @@
                 android:layout_height="@dimen/cell_height"
                 android:layout_width="@dimen/cell_width"
                 android:text=""
+                android:textSize="@dimen/cell_text_size"
                 />
             <Button
                 android:id="@+id/second"
@@ -38,13 +39,15 @@
                 android:layout_width="@dimen/cell_width"
                 android:layout_marginStart="@dimen/cell_start_end_margin"
                 android:layout_marginEnd="@dimen/cell_start_end_margin"
-                android:text=""/>
+                android:text=""
+                android:textSize="@dimen/cell_text_size"/>
             <Button
                 android:id="@+id/third"
                 android:onClick="@{() -> gameFragment.checkUserMove(3)}"
                 android:layout_height="@dimen/cell_height"
                 android:layout_width="@dimen/cell_width"
-                android:text=""/>
+                android:text=""
+                android:textSize="@dimen/cell_text_size"/>
         </LinearLayout>
 
         <LinearLayout
@@ -58,7 +61,8 @@
                 android:onClick="@{() -> gameFragment.checkUserMove(4)}"
                 android:layout_height="@dimen/cell_height"
                 android:layout_width="@dimen/cell_width"
-                android:text=""/>
+                android:text=""
+                android:textSize="@dimen/cell_text_size"/>
             <Button
                 android:id="@+id/fifth"
                 android:onClick="@{() -> gameFragment.checkUserMove(5)}"
@@ -66,13 +70,15 @@
                 android:layout_width="@dimen/cell_width"
                 android:layout_marginStart="@dimen/cell_start_end_margin"
                 android:layout_marginEnd="@dimen/cell_start_end_margin"
-                android:text=""/>
+                android:text=""
+                android:textSize="@dimen/cell_text_size"/>
             <Button
                 android:id="@+id/sixth"
                 android:onClick="@{() -> gameFragment.checkUserMove(6)}"
                 android:layout_height="@dimen/cell_height"
                 android:layout_width="@dimen/cell_width"
-                android:text=""/>
+                android:text=""
+                android:textSize="@dimen/cell_text_size"/>
         </LinearLayout>
 
         <LinearLayout
@@ -86,7 +92,8 @@
                 android:onClick="@{() -> gameFragment.checkUserMove(7)}"
                 android:layout_height="@dimen/cell_height"
                 android:layout_width="@dimen/cell_width"
-                android:text=""/>
+                android:text=""
+                android:textSize="@dimen/cell_text_size"/>
             <Button
                 android:id="@+id/eighth"
                 android:onClick="@{() -> gameFragment.checkUserMove(8)}"
@@ -94,13 +101,15 @@
                 android:layout_width="@dimen/cell_width"
                 android:layout_marginStart="@dimen/cell_start_end_margin"
                 android:layout_marginEnd="@dimen/cell_start_end_margin"
-                android:text=""/>
+                android:text=""
+                android:textSize="@dimen/cell_text_size"/>
             <Button
                 android:id="@+id/ninth"
                 android:onClick="@{() -> gameFragment.checkUserMove(9)}"
                 android:layout_height="@dimen/cell_height"
                 android:layout_width="@dimen/cell_width"
-                android:text=""/>
+                android:text=""
+                android:textSize="@dimen/cell_text_size"/>
         </LinearLayout>
 
     </FrameLayout>
