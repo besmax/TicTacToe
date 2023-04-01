@@ -11,7 +11,7 @@ class Computer(
     override fun makeMove(positionNumber: Int): Boolean {
         while(true) {
             return when {
-                occupyPosition(findPositionNumber(playground.findPositionsWithSymbol(defineUserSymbol()))) -> true
+                occupyPosition(findPositionNumber(playground.findPositionsWithSymbol(symbol))) -> true
                 occupyPosition(findPositionNumber(playground.findPositionsWithSymbol(defineUserSymbol()))) -> true
                 occupyPosition(findRandomPosition()) -> true
                 else -> false

@@ -21,7 +21,7 @@ class Playground {
         } else false
     }
 
-    fun checkTheRowsForWinner(winnerSymbol: Char): Boolean {
+    fun checkTheRowsForWinner(): Boolean {
         var result = false
         var elementNumber = 1
         for (i in 1..size) {
@@ -32,14 +32,15 @@ class Playground {
             }
             if (uniqueSymbolsInRow.size == 1 && !uniqueSymbolsInRow.contains(' ')) {
                 result = true
-                if (uniqueSymbolsInRow.contains(computerSymbol)) winnerOfTheGame = computerSymbol.toString()
+                if (uniqueSymbolsInRow.contains(computerSymbol)) winnerOfTheGame =
+                    computerSymbol.toString()
                 if (uniqueSymbolsInRow.contains(userSymbol)) winnerOfTheGame = userSymbol.toString()
             }
         }
         return result
     }
 
-    fun checkTheColumnsForWinner(winnerSymbol: Char): Boolean {
+    fun checkTheColumnsForWinner(): Boolean {
         var result = false
         for (i in 1..size) {
             val uniqueSymbolsInColumn: MutableSet<Char?> = HashSet()
@@ -52,48 +53,51 @@ class Playground {
                 result = true
                 if (uniqueSymbolsInColumn.contains(computerSymbol)) winnerOfTheGame =
                     computerSymbol.toString()
-                if (uniqueSymbolsInColumn.contains(userSymbol)) winnerOfTheGame = userSymbol.toString()
+                if (uniqueSymbolsInColumn.contains(userSymbol)) winnerOfTheGame =
+                    userSymbol.toString()
             }
         }
         return result
     }
 
-    fun checkTheDiagonalsForWinner(winnerSymbol: Char): Boolean {
+    fun checkTheDiagonalsForWinner(): Boolean {
         var result = false
         val uniqueSymbolsInDiagonal: MutableSet<Char> = HashSet()
-        run {
-            var i = 1
-            while (i <= field.size) {
-                field[i]?.let { uniqueSymbolsInDiagonal.add(it) }
-                i += size + 1
-            }
+        var i = 1
+
+        while (i <= field.size) {
+            uniqueSymbolsInDiagonal.add(field[i]!!)
+            i += size + 1
         }
+
         if (uniqueSymbolsInDiagonal.size == 1 && !uniqueSymbolsInDiagonal.contains(' ')) {
             result = true
-            if (uniqueSymbolsInDiagonal.contains(computerSymbol)) winnerOfTheGame =
-                computerSymbol.toString()
-            if (uniqueSymbolsInDiagonal.contains(userSymbol)) winnerOfTheGame = userSymbol.toString()
+            if (uniqueSymbolsInDiagonal.contains(computerSymbol))
+                winnerOfTheGame = computerSymbol.toString()
+            if (uniqueSymbolsInDiagonal.contains(userSymbol))
+                winnerOfTheGame = userSymbol.toString()
         }
         uniqueSymbolsInDiagonal.clear()
-        var i = size
-        while (i <= field.size - size + 1) {
-            field[i]?.let { uniqueSymbolsInDiagonal.add(it) }
+        i = size
+        while (i <= (field.size - size + 1)) {
+            uniqueSymbolsInDiagonal.add(field[i]!!)
             i = i + size - 1
         }
         if (uniqueSymbolsInDiagonal.size == 1 && !uniqueSymbolsInDiagonal.contains(' ')) {
             result = true
-            if (uniqueSymbolsInDiagonal.contains(computerSymbol)) winnerOfTheGame =
-                computerSymbol.toString()
-            if (uniqueSymbolsInDiagonal.contains(userSymbol)) winnerOfTheGame = userSymbol.toString()
+            if (uniqueSymbolsInDiagonal.contains(computerSymbol))
+                winnerOfTheGame = computerSymbol.toString()
+            if (uniqueSymbolsInDiagonal.contains(userSymbol))
+                winnerOfTheGame = userSymbol.toString()
         }
         return result
     }
 
-    fun doWeHaveWinner(winnerSymbol: Char): Boolean =
+    fun doWeHaveWinner(): Boolean =
         when {
-            (checkTheRowsForWinner(winnerSymbol)) -> true
-            (checkTheColumnsForWinner(winnerSymbol)) -> true
-            (checkTheDiagonalsForWinner(winnerSymbol)) -> true
+            (checkTheRowsForWinner()) -> true
+            (checkTheColumnsForWinner()) -> true
+            (checkTheDiagonalsForWinner()) -> true
             (!field.containsValue(' ')) -> true
             else -> false
         }

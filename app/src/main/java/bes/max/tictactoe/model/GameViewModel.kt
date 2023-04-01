@@ -38,7 +38,10 @@ class GameViewModel : ViewModel() {
                 computer.makeMove()
                 _gameField.value = playground.field
             }
-            else -> computer.symbol = '0'
+            else -> {
+                computer.symbol = '0'
+                playground.computerSymbol = computer.symbol
+            }
         }
     }
 
@@ -55,14 +58,12 @@ class GameViewModel : ViewModel() {
     }
 
     fun checkForGameToContinue(): Boolean {
-        val result = playground.doWeHaveWinner(human.symbol)
+        val result = playground.doWeHaveWinner()
         if (result) {
             _winner.value = when (playground.winnerOfTheGame) {
                 computer.symbol.toString() -> "computer"
                 human.symbol.toString() -> "user"
-                else -> {
-                    "no one"
-                }
+                else -> "no one"
             }
         }
         return result
