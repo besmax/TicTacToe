@@ -4,4 +4,5 @@
     <dimen name="cell_height">100dp</dimen>
     <dimen name="cell_start_end_margin">8dp</dimen>
     <dimen name="cell_text_size">24sp</dimen>
+    <dimen name="ic_cell_size">64dp</dimen>
 </resources>

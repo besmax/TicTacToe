@@ -15,6 +15,7 @@ class MenuFragment : Fragment() {
 
     private var binding: FragmentMenuBinding? = null
     private val gameViewModel: GameViewModel by activityViewModels()
+    var setSymbol: Char = 'X'
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,10 +37,11 @@ class MenuFragment : Fragment() {
     }
 
     fun chooseSymbol(symbol: Char) {
-        gameViewModel.setSymbol(symbol)
+        setSymbol = symbol
     }
 
     fun play() {
+        gameViewModel.setSymbol(setSymbol)
         findNavController().navigate(R.id.action_menuFragment_to_gameFragment)
     }
 
