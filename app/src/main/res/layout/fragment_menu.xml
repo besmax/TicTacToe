@@ -37,12 +37,14 @@
             android:orientation="vertical"
             android:checkedButton="@id/symbol_x"
             app:layout_constraintTop_toBottomOf="@+id/img"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/button_play">
             <RadioButton
                 android:id="@+id/symbol_x"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="play with X"
+                android:textSize="@dimen/radio_group_text_size"
                 android:onClick="@{() -> menuFragment.chooseSymbol('X')}"
                 />
             <RadioButton
@@ -50,6 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="play with 0"
+                android:textSize="@dimen/radio_group_text_size"
                 android:onClick="@{() -> menuFragment.chooseSymbol('0')}"
                 />
 
@@ -61,8 +64,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="Play"
+            android:textSize="@dimen/button_text_size"
             android:onClick="@{() -> menuFragment.play()}"
-            app:layout_constraintTop_toBottomOf="@+id/symbol_options"
+            app:layout_constraintTop_toBottomOf="@+id/img"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
