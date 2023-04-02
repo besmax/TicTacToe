@@ -1,4 +1,4 @@
-package model
+package bes.max.tictactoe.model
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import bes.max.tictactoe.model.GameViewModel

@@ -48,7 +48,7 @@ class PlaygroundTests {
         playgroundForTest.occupyPositionOnTheField(1, 'X')
         playgroundForTest.occupyPositionOnTheField(2, 'X')
         playgroundForTest.occupyPositionOnTheField(3, 'X')
-        Assert.assertEquals(true, playgroundForTest.checkTheRowsForWinner('X'))
+        Assert.assertEquals(true, playgroundForTest.checkTheRowsForWinner())
     }
     @Test
     fun checkTheRowsForWinnerChangesWinner() {
@@ -58,7 +58,7 @@ class PlaygroundTests {
         playgroundForTest.occupyPositionOnTheField(1, 'X')
         playgroundForTest.occupyPositionOnTheField(2, 'X')
         playgroundForTest.occupyPositionOnTheField(3, 'X')
-        playgroundForTest.checkTheRowsForWinner('X')
+        playgroundForTest.checkTheRowsForWinner()
         Assert.assertEquals("X", playgroundForTest.winnerOfTheGame)
     }
 
@@ -70,7 +70,7 @@ class PlaygroundTests {
         playgroundForTest.occupyPositionOnTheField(1, 'X')
         playgroundForTest.occupyPositionOnTheField(2, '0')
         playgroundForTest.occupyPositionOnTheField(3, 'X')
-        Assert.assertEquals(false, playgroundForTest.checkTheRowsForWinner('X'))
+        Assert.assertEquals(false, playgroundForTest.checkTheRowsForWinner())
     }
 
     @Test
@@ -79,7 +79,7 @@ class PlaygroundTests {
         playgroundForTest.occupyPositionOnTheField(1, 'X')
         playgroundForTest.occupyPositionOnTheField(4, 'X')
         playgroundForTest.occupyPositionOnTheField(7, 'X')
-        Assert.assertEquals(true, playgroundForTest.checkTheColumnsForWinner('X'))
+        Assert.assertEquals(true, playgroundForTest.checkTheColumnsForWinner())
     }
     @Test
     fun checkTheColumnsForWinnerChangesWinner() {
@@ -89,7 +89,7 @@ class PlaygroundTests {
         playgroundForTest.occupyPositionOnTheField(2, 'X')
         playgroundForTest.occupyPositionOnTheField(5, 'X')
         playgroundForTest.occupyPositionOnTheField(8, 'X')
-        playgroundForTest.checkTheColumnsForWinner('X')
+        playgroundForTest.checkTheColumnsForWinner()
         Assert.assertEquals("X", playgroundForTest.winnerOfTheGame)
     }
 
@@ -101,7 +101,7 @@ class PlaygroundTests {
         playgroundForTest.occupyPositionOnTheField(1, 'X')
         playgroundForTest.occupyPositionOnTheField(4, '0')
         playgroundForTest.occupyPositionOnTheField(7, 'X')
-        Assert.assertEquals(false, playgroundForTest.checkTheColumnsForWinner('X'))
+        Assert.assertEquals(false, playgroundForTest.checkTheColumnsForWinner())
     }
 
     @Test
@@ -110,7 +110,7 @@ class PlaygroundTests {
         playgroundForTest.occupyPositionOnTheField(1, 'X')
         playgroundForTest.occupyPositionOnTheField(5, 'X')
         playgroundForTest.occupyPositionOnTheField(9, 'X')
-        Assert.assertEquals(true, playgroundForTest.checkTheDiagonalsForWinner('X'))
+        Assert.assertEquals(true, playgroundForTest.checkTheDiagonalsForWinner())
     }
     @Test
     fun checkTheDiagonalsForWinnerChangesWinner() {
@@ -120,7 +120,7 @@ class PlaygroundTests {
         playgroundForTest.occupyPositionOnTheField(1, 'X')
         playgroundForTest.occupyPositionOnTheField(5, 'X')
         playgroundForTest.occupyPositionOnTheField(9, 'X')
-        playgroundForTest.checkTheDiagonalsForWinner('X')
+        playgroundForTest.checkTheDiagonalsForWinner()
         Assert.assertEquals("X", playgroundForTest.winnerOfTheGame)
     }
 
@@ -132,7 +132,7 @@ class PlaygroundTests {
         playgroundForTest.occupyPositionOnTheField(1, 'X')
         playgroundForTest.occupyPositionOnTheField(5, '0')
         playgroundForTest.occupyPositionOnTheField(9, 'X')
-        Assert.assertEquals(false, playgroundForTest.checkTheDiagonalsForWinner('X'))
+        Assert.assertEquals(false, playgroundForTest.checkTheDiagonalsForWinner())
     }
 
     @Test
@@ -143,7 +143,7 @@ class PlaygroundTests {
         playgroundForTest.occupyPositionOnTheField(1, 'X')
         playgroundForTest.occupyPositionOnTheField(5, '0')
         playgroundForTest.occupyPositionOnTheField(9, 'X')
-        Assert.assertEquals(false, playgroundForTest.doWeHaveWinner('X'))
+        Assert.assertEquals(false, playgroundForTest.doWeHaveWinner())
     }
 
     @Test
